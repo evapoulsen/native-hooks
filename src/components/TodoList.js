@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
-const TodList = () => {
+const TodoList = () => {
     return (
         <View style={styles.container}>
-            <Text>TodList</Text>
+            <Text>TodoList</Text>
         </View>
     );
 };
@@ -18,4 +18,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default TodList;
+export default TodoList;
