@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View,  Text, StyleSheet, FlatList } from 'react-native';
 
 const TodoList = (props) => {
-    const todos = [
-        { text: 'Pay bills', id: '1'},
-        { text: 'Do your homework', id: '2'},
-        { text: 'Start writing your project', id: '3'},
-        { text: 'Design your interface', id: '4'},
-        { text: 'Interview users', id: '5'},
+    const [todos, setTodos] = useState([
+            { text: 'Pay bills', id: '1'},
+            { text: 'Do your homework', id: '2'},
+            { text: 'Start writing your project', id: '3'},
+            { text: 'Design your interface', id: '4'},
+            { text: 'Interview users', id: '5'},
+    ]);
 
-    ];
     return (
         <View style={styles.container}>
             <FlatList
