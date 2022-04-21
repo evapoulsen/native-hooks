@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View,  Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
-const TodoList = (props) => {
+const TodoList = () => {
     const [todos, setTodos] = useState([
             { text: 'Pay bills', id: '1'},
             { text: 'Do your homework', id: '2'},
@@ -11,7 +11,7 @@ const TodoList = (props) => {
     ]);
 
     const addTodo = () => {
-        setTodos([...todos, {text: 'Learn Hooks', id: `${Math.random()}`}]);
+        setTodos([...todos, {text: 'Code and test!!!', id: `${Math.random()}`}]);
     }
     return (
         <View style={styles.container}>
@@ -39,7 +39,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: 40,
         justifyContent: 'center',
-        paddingVertical: 10,        
+        paddingVertical: 10,
+        borderRadius: 50        
     },
     buttonText : {
         color: 'white',
