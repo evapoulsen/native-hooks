@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { View,  Text, StyleSheet, FlatList } from 'react-native';
 
 const TodoList = (props) => {
