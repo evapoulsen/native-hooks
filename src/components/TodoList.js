@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View,  Text, StyleSheet, FlatList } from 'react-native';
+import { View,  Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
 
 const TodoList = (props) => {
     const [todos, setTodos] = useState([
@@ -10,6 +10,9 @@ const TodoList = (props) => {
             { text: 'Interview users', id: '5'},
     ]);
 
+    const addTodo = () => {
+        setTodos([...todos, {text: 'Learn Hooks', id: `${Math.random()}`}]);
+    }
     return (
         <View style={styles.container}>
             <FlatList
@@ -20,6 +23,9 @@ const TodoList = (props) => {
                 keyExtractor={(todo) => todo.id}
             >
             </FlatList>
+            <TouchableOpacity style={styles.buttonContainer}onPress={addTodo}>
+                <Text style={styles.buttonText}>Add Todo</Text>
+            </TouchableOpacity>
         </View>
     );
 };
@@ -27,6 +33,16 @@ const TodoList = (props) => {
 const styles = StyleSheet.create({
     container: {
         marginTop: 50,
+    },
+    buttonContainer: {
+        backgroundColor: 'dodgerblue',
+        alignItems: 'center',
+        marginBottom: 40,
+        justifyContent: 'center',
+        paddingVertical: 10,        
+    },
+    buttonText : {
+        color: 'white',
     },
 });
 
