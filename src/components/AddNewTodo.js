@@ -6,6 +6,7 @@ const AddNewTodo = ({ addTodo }) => {
 
     const onButtonPress = () => {
         addTodo(todo);
+        setTodo('');
     };
 
     return (
