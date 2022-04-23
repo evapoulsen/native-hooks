@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { View,  Text, StyleSheet, FlatList, TouchableOpacity } from 'react-native';
+import { View,  Text, StyleSheet, FlatList } from 'react-native';
 
-const TodoList = () => {
+import AddNewTodo from './AddNewTodo';
+
+const TodoList = (props) => {
     const [todos, setTodos] = useState([
             { text: 'Pay bills', id: '1'},
             { text: 'Do your homework', id: '2'},
@@ -10,8 +12,8 @@ const TodoList = () => {
             { text: 'Interview users', id: '5'},
     ]);
 
-    const addTodo = () => {
-        setTodos([...todos, {text: 'Code and test!!!', id: `${Math.random()}`}]);
+    const addTodo = (text) => {
+        setTodos([...todos, { text, id: `${Math.random()}` }]);
     }
     return (
         <View style={styles.container}>
@@ -21,11 +23,8 @@ const TodoList = () => {
                     return <Text>{item.text}</Text>
                 }}
                 keyExtractor={(todo) => todo.id}
-            >
-            </FlatList>
-            <TouchableOpacity style={styles.buttonContainer}onPress={addTodo}>
-                <Text style={styles.buttonText}>Add Todo</Text>
-            </TouchableOpacity>
+            />
+            <AddNewTodo addTodo={addTodo}/>
         </View>
     );
 };
@@ -33,18 +32,7 @@ const TodoList = () => {
 const styles = StyleSheet.create({
     container: {
         marginTop: 50,
-    },
-    buttonContainer: {
-        backgroundColor: 'dodgerblue',
-        alignItems: 'center',
-        marginBottom: 40,
-        justifyContent: 'center',
-        paddingVertical: 10,
-        borderRadius: 50        
-    },
-    buttonText : {
-        color: 'white',
-    },
+    }
 });
 
 export default TodoList;
